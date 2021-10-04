@@ -17,7 +17,7 @@ class scrape:
         self.browser.maximize_window()
 
     
-    # Methods for waiting the elements to be installed
+    # Methods for waiting the elements to be loaded
     def wait_for_object(self, type, string):
         return WebDriverWait(self.browser, 10).until(ec.presence_of_element_located((type, string)))
 
@@ -46,7 +46,7 @@ class scrape:
         inputs[1].send_keys(Keys.ENTER)
      
     
-    # Defining scroll down method since without scrolling down, elements won't be installed
+    # Defining scroll down method since without scrolling down, elements won't be loaded
     def scroll_down_followers(self):
         command = """
         page = document.querySelector(".isgrP");
@@ -77,7 +77,7 @@ class scrape:
         if private != []:
             pass
         else:
-            # Waiting until followers box to be installed
+            # Waiting until followers box to be loaded
             self.wait_for_click(By.XPATH, '//*[@id="react-root"]/section/main/div/header/section/ul/li[2]/a').click()
             
             # Wait for openning the box
